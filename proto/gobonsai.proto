@@ -3,7 +3,7 @@ syntax = "proto3";
 package gobonsai;
 
 service GoBonsaiService {
-    rpc StopPumps (StopPumpsRequest) returns (StopPumpsReply) {}
+    rpc SetPump (StopPumpsRequest) returns (StopPumpsReply) {}
     rpc ListSensorValues (ListSensorRequest) returns (stream SensorValue) {}
 }
 
@@ -15,8 +15,11 @@ message SensorValue {
 
 message StopPumpsRequest {
     int32 pumpId = 1;
+    bool active = 2;
 }
 
 message StopPumpsReply {
-    int32 result = 1;
+    int32 pumpId = 1;
+    bool active = 2;
+    bool success = 3;
 }
