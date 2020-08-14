@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package gobonsai;
+
+service GoBonsaiService {
+    rpc GoBonsaiResult (GoBonsaiRequest) returns (GoBonsaiReply) {}
+}
+
+message GoBonsaiRequest {
+    string data = 1;
+}
+
+message GoBonsaiReply {
+    string result = 2;
+}
