@@ -4,6 +4,8 @@ package gobonsai;
 
 service GoBonsaiService {
     rpc GoBonsaiResult (GoBonsaiRequest) returns (GoBonsaiReply) {}
+    rpc StopPumps (StopPumpsRequest) return (StopPumpsReply) {}
+    rpc ListSensorValues (ListSensorRequest) returns (stream SensorValue) {}
 }
 
 message GoBonsaiRequest {
@@ -12,4 +14,18 @@ message GoBonsaiRequest {
 
 message GoBonsaiReply {
     string result = 2;
+}
+
+message ListSensorRequest {}
+
+message SensorValue {
+    int32 value = 1;
+}
+
+message StopPumpsRequest {
+    int32 pumpId = 1;
+}
+
+message StopPumpsReply {
+    int32 result = 1;
 }
