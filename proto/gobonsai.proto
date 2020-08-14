@@ -3,17 +3,8 @@ syntax = "proto3";
 package gobonsai;
 
 service GoBonsaiService {
-    rpc GoBonsaiResult (GoBonsaiRequest) returns (GoBonsaiReply) {}
     rpc StopPumps (StopPumpsRequest) returns (StopPumpsReply) {}
     rpc ListSensorValues (ListSensorRequest) returns (stream SensorValue) {}
-}
-
-message GoBonsaiRequest {
-    string data = 1;
-}
-
-message GoBonsaiReply {
-    string result = 2;
 }
 
 message ListSensorRequest {}

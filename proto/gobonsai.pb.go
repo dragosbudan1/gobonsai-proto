@@ -29,100 +29,6 @@ const (
 // of the legacy proto package is being used.
 const _ = proto.ProtoPackageIsVersion4
 
-type GoBonsaiRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Data string `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
-}
-
-func (x *GoBonsaiRequest) Reset() {
-	*x = GoBonsaiRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_gobonsai_proto_msgTypes[0]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *GoBonsaiRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GoBonsaiRequest) ProtoMessage() {}
-
-func (x *GoBonsaiRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gobonsai_proto_msgTypes[0]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GoBonsaiRequest.ProtoReflect.Descriptor instead.
-func (*GoBonsaiRequest) Descriptor() ([]byte, []int) {
-	return file_gobonsai_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *GoBonsaiRequest) GetData() string {
-	if x != nil {
-		return x.Data
-	}
-	return ""
-}
-
-type GoBonsaiReply struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Result string `protobuf:"bytes,2,opt,name=result,proto3" json:"result,omitempty"`
-}
-
-func (x *GoBonsaiReply) Reset() {
-	*x = GoBonsaiReply{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_gobonsai_proto_msgTypes[1]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *GoBonsaiReply) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GoBonsaiReply) ProtoMessage() {}
-
-func (x *GoBonsaiReply) ProtoReflect() protoreflect.Message {
-	mi := &file_gobonsai_proto_msgTypes[1]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GoBonsaiReply.ProtoReflect.Descriptor instead.
-func (*GoBonsaiReply) Descriptor() ([]byte, []int) {
-	return file_gobonsai_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *GoBonsaiReply) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
 type ListSensorRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -132,7 +38,7 @@ type ListSensorRequest struct {
 func (x *ListSensorRequest) Reset() {
 	*x = ListSensorRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gobonsai_proto_msgTypes[2]
+		mi := &file_gobonsai_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -145,7 +51,7 @@ func (x *ListSensorRequest) String() string {
 func (*ListSensorRequest) ProtoMessage() {}
 
 func (x *ListSensorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gobonsai_proto_msgTypes[2]
+	mi := &file_gobonsai_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -158,7 +64,7 @@ func (x *ListSensorRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListSensorRequest.ProtoReflect.Descriptor instead.
 func (*ListSensorRequest) Descriptor() ([]byte, []int) {
-	return file_gobonsai_proto_rawDescGZIP(), []int{2}
+	return file_gobonsai_proto_rawDescGZIP(), []int{0}
 }
 
 type SensorValue struct {
@@ -172,7 +78,7 @@ type SensorValue struct {
 func (x *SensorValue) Reset() {
 	*x = SensorValue{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gobonsai_proto_msgTypes[3]
+		mi := &file_gobonsai_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -185,7 +91,7 @@ func (x *SensorValue) String() string {
 func (*SensorValue) ProtoMessage() {}
 
 func (x *SensorValue) ProtoReflect() protoreflect.Message {
-	mi := &file_gobonsai_proto_msgTypes[3]
+	mi := &file_gobonsai_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -198,7 +104,7 @@ func (x *SensorValue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SensorValue.ProtoReflect.Descriptor instead.
 func (*SensorValue) Descriptor() ([]byte, []int) {
-	return file_gobonsai_proto_rawDescGZIP(), []int{3}
+	return file_gobonsai_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *SensorValue) GetValue() int32 {
@@ -219,7 +125,7 @@ type StopPumpsRequest struct {
 func (x *StopPumpsRequest) Reset() {
 	*x = StopPumpsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gobonsai_proto_msgTypes[4]
+		mi := &file_gobonsai_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -232,7 +138,7 @@ func (x *StopPumpsRequest) String() string {
 func (*StopPumpsRequest) ProtoMessage() {}
 
 func (x *StopPumpsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gobonsai_proto_msgTypes[4]
+	mi := &file_gobonsai_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -245,7 +151,7 @@ func (x *StopPumpsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopPumpsRequest.ProtoReflect.Descriptor instead.
 func (*StopPumpsRequest) Descriptor() ([]byte, []int) {
-	return file_gobonsai_proto_rawDescGZIP(), []int{4}
+	return file_gobonsai_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *StopPumpsRequest) GetPumpId() int32 {
@@ -266,7 +172,7 @@ type StopPumpsReply struct {
 func (x *StopPumpsReply) Reset() {
 	*x = StopPumpsReply{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gobonsai_proto_msgTypes[5]
+		mi := &file_gobonsai_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -279,7 +185,7 @@ func (x *StopPumpsReply) String() string {
 func (*StopPumpsReply) ProtoMessage() {}
 
 func (x *StopPumpsReply) ProtoReflect() protoreflect.Message {
-	mi := &file_gobonsai_proto_msgTypes[5]
+	mi := &file_gobonsai_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -292,7 +198,7 @@ func (x *StopPumpsReply) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopPumpsReply.ProtoReflect.Descriptor instead.
 func (*StopPumpsReply) Descriptor() ([]byte, []int) {
-	return file_gobonsai_proto_rawDescGZIP(), []int{5}
+	return file_gobonsai_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *StopPumpsReply) GetResult() int32 {
@@ -306,12 +212,7 @@ var File_gobonsai_proto protoreflect.FileDescriptor
 
 var file_gobonsai_proto_rawDesc = []byte{
 	0x0a, 0x0e, 0x67, 0x6f, 0x62, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x12, 0x08, 0x67, 0x6f, 0x62, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x22, 0x25, 0x0a, 0x0f, 0x47, 0x6f,
-	0x42, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x12, 0x0a,
-	0x04, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x64, 0x61, 0x74,
-	0x61, 0x22, 0x27, 0x0a, 0x0d, 0x47, 0x6f, 0x42, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x52, 0x65, 0x70,
-	0x6c, 0x79, 0x12, 0x16, 0x0a, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x02, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0x13, 0x0a, 0x11, 0x4c, 0x69,
+	0x12, 0x08, 0x67, 0x6f, 0x62, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x22, 0x13, 0x0a, 0x11, 0x4c, 0x69,
 	0x73, 0x74, 0x53, 0x65, 0x6e, 0x73, 0x6f, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22,
 	0x23, 0x0a, 0x0b, 0x53, 0x65, 0x6e, 0x73, 0x6f, 0x72, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x12, 0x14,
 	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x05, 0x76,
@@ -320,22 +221,18 @@ var file_gobonsai_proto_rawDesc = []byte{
 	0x49, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x70, 0x75, 0x6d, 0x70, 0x49, 0x64,
 	0x22, 0x28, 0x0a, 0x0e, 0x53, 0x74, 0x6f, 0x70, 0x50, 0x75, 0x6d, 0x70, 0x73, 0x52, 0x65, 0x70,
 	0x6c, 0x79, 0x12, 0x16, 0x0a, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x05, 0x52, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x32, 0xea, 0x01, 0x0a, 0x0f, 0x47,
-	0x6f, 0x42, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x46,
-	0x0a, 0x0e, 0x47, 0x6f, 0x42, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74,
-	0x12, 0x19, 0x2e, 0x67, 0x6f, 0x62, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x2e, 0x47, 0x6f, 0x42, 0x6f,
-	0x6e, 0x73, 0x61, 0x69, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x17, 0x2e, 0x67, 0x6f,
-	0x62, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x2e, 0x47, 0x6f, 0x42, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x52,
-	0x65, 0x70, 0x6c, 0x79, 0x22, 0x00, 0x12, 0x43, 0x0a, 0x09, 0x53, 0x74, 0x6f, 0x70, 0x50, 0x75,
-	0x6d, 0x70, 0x73, 0x12, 0x1a, 0x2e, 0x67, 0x6f, 0x62, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x2e, 0x53,
-	0x74, 0x6f, 0x70, 0x50, 0x75, 0x6d, 0x70, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
-	0x18, 0x2e, 0x67, 0x6f, 0x62, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x2e, 0x53, 0x74, 0x6f, 0x70, 0x50,
-	0x75, 0x6d, 0x70, 0x73, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x22, 0x00, 0x12, 0x4a, 0x0a, 0x10, 0x4c,
-	0x69, 0x73, 0x74, 0x53, 0x65, 0x6e, 0x73, 0x6f, 0x72, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x12,
-	0x1b, 0x2e, 0x67, 0x6f, 0x62, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x2e, 0x4c, 0x69, 0x73, 0x74, 0x53,
-	0x65, 0x6e, 0x73, 0x6f, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x15, 0x2e, 0x67,
-	0x6f, 0x62, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x2e, 0x53, 0x65, 0x6e, 0x73, 0x6f, 0x72, 0x56, 0x61,
-	0x6c, 0x75, 0x65, 0x22, 0x00, 0x30, 0x01, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x28, 0x05, 0x52, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x32, 0xa2, 0x01, 0x0a, 0x0f, 0x47,
+	0x6f, 0x42, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x43,
+	0x0a, 0x09, 0x53, 0x74, 0x6f, 0x70, 0x50, 0x75, 0x6d, 0x70, 0x73, 0x12, 0x1a, 0x2e, 0x67, 0x6f,
+	0x62, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x2e, 0x53, 0x74, 0x6f, 0x70, 0x50, 0x75, 0x6d, 0x70, 0x73,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e, 0x67, 0x6f, 0x62, 0x6f, 0x6e, 0x73,
+	0x61, 0x69, 0x2e, 0x53, 0x74, 0x6f, 0x70, 0x50, 0x75, 0x6d, 0x70, 0x73, 0x52, 0x65, 0x70, 0x6c,
+	0x79, 0x22, 0x00, 0x12, 0x4a, 0x0a, 0x10, 0x4c, 0x69, 0x73, 0x74, 0x53, 0x65, 0x6e, 0x73, 0x6f,
+	0x72, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x12, 0x1b, 0x2e, 0x67, 0x6f, 0x62, 0x6f, 0x6e, 0x73,
+	0x61, 0x69, 0x2e, 0x4c, 0x69, 0x73, 0x74, 0x53, 0x65, 0x6e, 0x73, 0x6f, 0x72, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x15, 0x2e, 0x67, 0x6f, 0x62, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x2e,
+	0x53, 0x65, 0x6e, 0x73, 0x6f, 0x72, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x00, 0x30, 0x01, 0x62,
+	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -350,24 +247,20 @@ func file_gobonsai_proto_rawDescGZIP() []byte {
 	return file_gobonsai_proto_rawDescData
 }
 
-var file_gobonsai_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_gobonsai_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_gobonsai_proto_goTypes = []interface{}{
-	(*GoBonsaiRequest)(nil),   // 0: gobonsai.GoBonsaiRequest
-	(*GoBonsaiReply)(nil),     // 1: gobonsai.GoBonsaiReply
-	(*ListSensorRequest)(nil), // 2: gobonsai.ListSensorRequest
-	(*SensorValue)(nil),       // 3: gobonsai.SensorValue
-	(*StopPumpsRequest)(nil),  // 4: gobonsai.StopPumpsRequest
-	(*StopPumpsReply)(nil),    // 5: gobonsai.StopPumpsReply
+	(*ListSensorRequest)(nil), // 0: gobonsai.ListSensorRequest
+	(*SensorValue)(nil),       // 1: gobonsai.SensorValue
+	(*StopPumpsRequest)(nil),  // 2: gobonsai.StopPumpsRequest
+	(*StopPumpsReply)(nil),    // 3: gobonsai.StopPumpsReply
 }
 var file_gobonsai_proto_depIdxs = []int32{
-	0, // 0: gobonsai.GoBonsaiService.GoBonsaiResult:input_type -> gobonsai.GoBonsaiRequest
-	4, // 1: gobonsai.GoBonsaiService.StopPumps:input_type -> gobonsai.StopPumpsRequest
-	2, // 2: gobonsai.GoBonsaiService.ListSensorValues:input_type -> gobonsai.ListSensorRequest
-	1, // 3: gobonsai.GoBonsaiService.GoBonsaiResult:output_type -> gobonsai.GoBonsaiReply
-	5, // 4: gobonsai.GoBonsaiService.StopPumps:output_type -> gobonsai.StopPumpsReply
-	3, // 5: gobonsai.GoBonsaiService.ListSensorValues:output_type -> gobonsai.SensorValue
-	3, // [3:6] is the sub-list for method output_type
-	0, // [0:3] is the sub-list for method input_type
+	2, // 0: gobonsai.GoBonsaiService.StopPumps:input_type -> gobonsai.StopPumpsRequest
+	0, // 1: gobonsai.GoBonsaiService.ListSensorValues:input_type -> gobonsai.ListSensorRequest
+	3, // 2: gobonsai.GoBonsaiService.StopPumps:output_type -> gobonsai.StopPumpsReply
+	1, // 3: gobonsai.GoBonsaiService.ListSensorValues:output_type -> gobonsai.SensorValue
+	2, // [2:4] is the sub-list for method output_type
+	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -380,30 +273,6 @@ func file_gobonsai_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_gobonsai_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GoBonsaiRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_gobonsai_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GoBonsaiReply); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_gobonsai_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListSensorRequest); i {
 			case 0:
 				return &v.state
@@ -415,7 +284,7 @@ func file_gobonsai_proto_init() {
 				return nil
 			}
 		}
-		file_gobonsai_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_gobonsai_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SensorValue); i {
 			case 0:
 				return &v.state
@@ -427,7 +296,7 @@ func file_gobonsai_proto_init() {
 				return nil
 			}
 		}
-		file_gobonsai_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_gobonsai_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*StopPumpsRequest); i {
 			case 0:
 				return &v.state
@@ -439,7 +308,7 @@ func file_gobonsai_proto_init() {
 				return nil
 			}
 		}
-		file_gobonsai_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_gobonsai_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*StopPumpsReply); i {
 			case 0:
 				return &v.state
@@ -458,7 +327,7 @@ func file_gobonsai_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_gobonsai_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -484,7 +353,6 @@ const _ = grpc.SupportPackageIsVersion6
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type GoBonsaiServiceClient interface {
-	GoBonsaiResult(ctx context.Context, in *GoBonsaiRequest, opts ...grpc.CallOption) (*GoBonsaiReply, error)
 	StopPumps(ctx context.Context, in *StopPumpsRequest, opts ...grpc.CallOption) (*StopPumpsReply, error)
 	ListSensorValues(ctx context.Context, in *ListSensorRequest, opts ...grpc.CallOption) (GoBonsaiService_ListSensorValuesClient, error)
 }
@@ -495,15 +363,6 @@ type goBonsaiServiceClient struct {
 
 func NewGoBonsaiServiceClient(cc grpc.ClientConnInterface) GoBonsaiServiceClient {
 	return &goBonsaiServiceClient{cc}
-}
-
-func (c *goBonsaiServiceClient) GoBonsaiResult(ctx context.Context, in *GoBonsaiRequest, opts ...grpc.CallOption) (*GoBonsaiReply, error) {
-	out := new(GoBonsaiReply)
-	err := c.cc.Invoke(ctx, "/gobonsai.GoBonsaiService/GoBonsaiResult", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
 }
 
 func (c *goBonsaiServiceClient) StopPumps(ctx context.Context, in *StopPumpsRequest, opts ...grpc.CallOption) (*StopPumpsReply, error) {
@@ -549,7 +408,6 @@ func (x *goBonsaiServiceListSensorValuesClient) Recv() (*SensorValue, error) {
 
 // GoBonsaiServiceServer is the server API for GoBonsaiService service.
 type GoBonsaiServiceServer interface {
-	GoBonsaiResult(context.Context, *GoBonsaiRequest) (*GoBonsaiReply, error)
 	StopPumps(context.Context, *StopPumpsRequest) (*StopPumpsReply, error)
 	ListSensorValues(*ListSensorRequest, GoBonsaiService_ListSensorValuesServer) error
 }
@@ -558,9 +416,6 @@ type GoBonsaiServiceServer interface {
 type UnimplementedGoBonsaiServiceServer struct {
 }
 
-func (*UnimplementedGoBonsaiServiceServer) GoBonsaiResult(context.Context, *GoBonsaiRequest) (*GoBonsaiReply, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GoBonsaiResult not implemented")
-}
 func (*UnimplementedGoBonsaiServiceServer) StopPumps(context.Context, *StopPumpsRequest) (*StopPumpsReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method StopPumps not implemented")
 }
@@ -570,24 +425,6 @@ func (*UnimplementedGoBonsaiServiceServer) ListSensorValues(*ListSensorRequest, 
 
 func RegisterGoBonsaiServiceServer(s *grpc.Server, srv GoBonsaiServiceServer) {
 	s.RegisterService(&_GoBonsaiService_serviceDesc, srv)
-}
-
-func _GoBonsaiService_GoBonsaiResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GoBonsaiRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GoBonsaiServiceServer).GoBonsaiResult(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/gobonsai.GoBonsaiService/GoBonsaiResult",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GoBonsaiServiceServer).GoBonsaiResult(ctx, req.(*GoBonsaiRequest))
-	}
-	return interceptor(ctx, in, info, handler)
 }
 
 func _GoBonsaiService_StopPumps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -633,10 +470,6 @@ var _GoBonsaiService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "gobonsai.GoBonsaiService",
 	HandlerType: (*GoBonsaiServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GoBonsaiResult",
-			Handler:    _GoBonsaiService_GoBonsaiResult_Handler,
-		},
 		{
 			MethodName: "StopPumps",
 			Handler:    _GoBonsaiService_StopPumps_Handler,
