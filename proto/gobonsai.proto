@@ -4,6 +4,7 @@ package gobonsai;
 
 service GoBonsaiService {
     rpc SetPump (SetPumpRequest) returns (SetPumpReply) {}
+    rpc GetPumps (Empty) returns (GetPumpsResponse) {}
 }
 
 message SetPumpRequest {
@@ -15,4 +16,17 @@ message SetPumpReply {
     int32 pumpId = 1;
     bool active = 2;
     bool success = 3;
+}
+
+message PumpData {
+    int32 pumpId = 1;
+    bool active = 2;
+}
+
+message GetPumpsResponse {
+    repeated PumpData Pumps = 1;
+}
+
+message Empty {
+    
 }
