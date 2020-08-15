@@ -29,14 +29,17 @@ const (
 // of the legacy proto package is being used.
 const _ = proto.ProtoPackageIsVersion4
 
-type ListSensorRequest struct {
+type SetPumpRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
+
+	PumpId int32 `protobuf:"varint,1,opt,name=pumpId,proto3" json:"pumpId,omitempty"`
+	Active bool  `protobuf:"varint,2,opt,name=active,proto3" json:"active,omitempty"`
 }
 
-func (x *ListSensorRequest) Reset() {
-	*x = ListSensorRequest{}
+func (x *SetPumpRequest) Reset() {
+	*x = SetPumpRequest{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_gobonsai_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -44,13 +47,13 @@ func (x *ListSensorRequest) Reset() {
 	}
 }
 
-func (x *ListSensorRequest) String() string {
+func (x *SetPumpRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ListSensorRequest) ProtoMessage() {}
+func (*SetPumpRequest) ProtoMessage() {}
 
-func (x *ListSensorRequest) ProtoReflect() protoreflect.Message {
+func (x *SetPumpRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_gobonsai_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -62,21 +65,37 @@ func (x *ListSensorRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ListSensorRequest.ProtoReflect.Descriptor instead.
-func (*ListSensorRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use SetPumpRequest.ProtoReflect.Descriptor instead.
+func (*SetPumpRequest) Descriptor() ([]byte, []int) {
 	return file_gobonsai_proto_rawDescGZIP(), []int{0}
 }
 
-type SensorValue struct {
+func (x *SetPumpRequest) GetPumpId() int32 {
+	if x != nil {
+		return x.PumpId
+	}
+	return 0
+}
+
+func (x *SetPumpRequest) GetActive() bool {
+	if x != nil {
+		return x.Active
+	}
+	return false
+}
+
+type SetPumpReply struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Value int32 `protobuf:"varint,1,opt,name=value,proto3" json:"value,omitempty"`
+	PumpId  int32 `protobuf:"varint,1,opt,name=pumpId,proto3" json:"pumpId,omitempty"`
+	Active  bool  `protobuf:"varint,2,opt,name=active,proto3" json:"active,omitempty"`
+	Success bool  `protobuf:"varint,3,opt,name=success,proto3" json:"success,omitempty"`
 }
 
-func (x *SensorValue) Reset() {
-	*x = SensorValue{}
+func (x *SetPumpReply) Reset() {
+	*x = SetPumpReply{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_gobonsai_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -84,13 +103,13 @@ func (x *SensorValue) Reset() {
 	}
 }
 
-func (x *SensorValue) String() string {
+func (x *SetPumpReply) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SensorValue) ProtoMessage() {}
+func (*SetPumpReply) ProtoMessage() {}
 
-func (x *SensorValue) ProtoReflect() protoreflect.Message {
+func (x *SetPumpReply) ProtoReflect() protoreflect.Message {
 	mi := &file_gobonsai_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -102,130 +121,26 @@ func (x *SensorValue) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SensorValue.ProtoReflect.Descriptor instead.
-func (*SensorValue) Descriptor() ([]byte, []int) {
+// Deprecated: Use SetPumpReply.ProtoReflect.Descriptor instead.
+func (*SetPumpReply) Descriptor() ([]byte, []int) {
 	return file_gobonsai_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *SensorValue) GetValue() int32 {
-	if x != nil {
-		return x.Value
-	}
-	return 0
-}
-
-type StopPumpsRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	PumpId int32 `protobuf:"varint,1,opt,name=pumpId,proto3" json:"pumpId,omitempty"`
-	Active bool  `protobuf:"varint,2,opt,name=active,proto3" json:"active,omitempty"`
-}
-
-func (x *StopPumpsRequest) Reset() {
-	*x = StopPumpsRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_gobonsai_proto_msgTypes[2]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *StopPumpsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StopPumpsRequest) ProtoMessage() {}
-
-func (x *StopPumpsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gobonsai_proto_msgTypes[2]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StopPumpsRequest.ProtoReflect.Descriptor instead.
-func (*StopPumpsRequest) Descriptor() ([]byte, []int) {
-	return file_gobonsai_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *StopPumpsRequest) GetPumpId() int32 {
+func (x *SetPumpReply) GetPumpId() int32 {
 	if x != nil {
 		return x.PumpId
 	}
 	return 0
 }
 
-func (x *StopPumpsRequest) GetActive() bool {
+func (x *SetPumpReply) GetActive() bool {
 	if x != nil {
 		return x.Active
 	}
 	return false
 }
 
-type StopPumpsReply struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	PumpId  int32 `protobuf:"varint,1,opt,name=pumpId,proto3" json:"pumpId,omitempty"`
-	Active  bool  `protobuf:"varint,2,opt,name=active,proto3" json:"active,omitempty"`
-	Success bool  `protobuf:"varint,3,opt,name=success,proto3" json:"success,omitempty"`
-}
-
-func (x *StopPumpsReply) Reset() {
-	*x = StopPumpsReply{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_gobonsai_proto_msgTypes[3]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *StopPumpsReply) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StopPumpsReply) ProtoMessage() {}
-
-func (x *StopPumpsReply) ProtoReflect() protoreflect.Message {
-	mi := &file_gobonsai_proto_msgTypes[3]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StopPumpsReply.ProtoReflect.Descriptor instead.
-func (*StopPumpsReply) Descriptor() ([]byte, []int) {
-	return file_gobonsai_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *StopPumpsReply) GetPumpId() int32 {
-	if x != nil {
-		return x.PumpId
-	}
-	return 0
-}
-
-func (x *StopPumpsReply) GetActive() bool {
-	if x != nil {
-		return x.Active
-	}
-	return false
-}
-
-func (x *StopPumpsReply) GetSuccess() bool {
+func (x *SetPumpReply) GetSuccess() bool {
 	if x != nil {
 		return x.Success
 	}
@@ -236,31 +151,22 @@ var File_gobonsai_proto protoreflect.FileDescriptor
 
 var file_gobonsai_proto_rawDesc = []byte{
 	0x0a, 0x0e, 0x67, 0x6f, 0x62, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x12, 0x08, 0x67, 0x6f, 0x62, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x22, 0x13, 0x0a, 0x11, 0x4c, 0x69,
-	0x73, 0x74, 0x53, 0x65, 0x6e, 0x73, 0x6f, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22,
-	0x23, 0x0a, 0x0b, 0x53, 0x65, 0x6e, 0x73, 0x6f, 0x72, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x12, 0x14,
-	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x22, 0x42, 0x0a, 0x10, 0x53, 0x74, 0x6f, 0x70, 0x50, 0x75, 0x6d, 0x70,
-	0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x16, 0x0a, 0x06, 0x70, 0x75, 0x6d, 0x70,
-	0x49, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x70, 0x75, 0x6d, 0x70, 0x49, 0x64,
-	0x12, 0x16, 0x0a, 0x06, 0x61, 0x63, 0x74, 0x69, 0x76, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x08,
-	0x52, 0x06, 0x61, 0x63, 0x74, 0x69, 0x76, 0x65, 0x22, 0x5a, 0x0a, 0x0e, 0x53, 0x74, 0x6f, 0x70,
-	0x50, 0x75, 0x6d, 0x70, 0x73, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x12, 0x16, 0x0a, 0x06, 0x70, 0x75,
-	0x6d, 0x70, 0x49, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x70, 0x75, 0x6d, 0x70,
-	0x49, 0x64, 0x12, 0x16, 0x0a, 0x06, 0x61, 0x63, 0x74, 0x69, 0x76, 0x65, 0x18, 0x02, 0x20, 0x01,
-	0x28, 0x08, 0x52, 0x06, 0x61, 0x63, 0x74, 0x69, 0x76, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x75,
-	0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x03, 0x20, 0x01, 0x28, 0x08, 0x52, 0x07, 0x73, 0x75, 0x63,
-	0x63, 0x65, 0x73, 0x73, 0x32, 0xa0, 0x01, 0x0a, 0x0f, 0x47, 0x6f, 0x42, 0x6f, 0x6e, 0x73, 0x61,
-	0x69, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x41, 0x0a, 0x07, 0x53, 0x65, 0x74, 0x50,
-	0x75, 0x6d, 0x70, 0x12, 0x1a, 0x2e, 0x67, 0x6f, 0x62, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x2e, 0x53,
-	0x74, 0x6f, 0x70, 0x50, 0x75, 0x6d, 0x70, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
-	0x18, 0x2e, 0x67, 0x6f, 0x62, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x2e, 0x53, 0x74, 0x6f, 0x70, 0x50,
-	0x75, 0x6d, 0x70, 0x73, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x22, 0x00, 0x12, 0x4a, 0x0a, 0x10, 0x4c,
-	0x69, 0x73, 0x74, 0x53, 0x65, 0x6e, 0x73, 0x6f, 0x72, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x12,
-	0x1b, 0x2e, 0x67, 0x6f, 0x62, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x2e, 0x4c, 0x69, 0x73, 0x74, 0x53,
-	0x65, 0x6e, 0x73, 0x6f, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x15, 0x2e, 0x67,
-	0x6f, 0x62, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x2e, 0x53, 0x65, 0x6e, 0x73, 0x6f, 0x72, 0x56, 0x61,
-	0x6c, 0x75, 0x65, 0x22, 0x00, 0x30, 0x01, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x12, 0x08, 0x67, 0x6f, 0x62, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x22, 0x40, 0x0a, 0x0e, 0x53, 0x65,
+	0x74, 0x50, 0x75, 0x6d, 0x70, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x16, 0x0a, 0x06,
+	0x70, 0x75, 0x6d, 0x70, 0x49, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x70, 0x75,
+	0x6d, 0x70, 0x49, 0x64, 0x12, 0x16, 0x0a, 0x06, 0x61, 0x63, 0x74, 0x69, 0x76, 0x65, 0x18, 0x02,
+	0x20, 0x01, 0x28, 0x08, 0x52, 0x06, 0x61, 0x63, 0x74, 0x69, 0x76, 0x65, 0x22, 0x58, 0x0a, 0x0c,
+	0x53, 0x65, 0x74, 0x50, 0x75, 0x6d, 0x70, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x12, 0x16, 0x0a, 0x06,
+	0x70, 0x75, 0x6d, 0x70, 0x49, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x70, 0x75,
+	0x6d, 0x70, 0x49, 0x64, 0x12, 0x16, 0x0a, 0x06, 0x61, 0x63, 0x74, 0x69, 0x76, 0x65, 0x18, 0x02,
+	0x20, 0x01, 0x28, 0x08, 0x52, 0x06, 0x61, 0x63, 0x74, 0x69, 0x76, 0x65, 0x12, 0x18, 0x0a, 0x07,
+	0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x18, 0x03, 0x20, 0x01, 0x28, 0x08, 0x52, 0x07, 0x73,
+	0x75, 0x63, 0x63, 0x65, 0x73, 0x73, 0x32, 0x50, 0x0a, 0x0f, 0x47, 0x6f, 0x42, 0x6f, 0x6e, 0x73,
+	0x61, 0x69, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x3d, 0x0a, 0x07, 0x53, 0x65, 0x74,
+	0x50, 0x75, 0x6d, 0x70, 0x12, 0x18, 0x2e, 0x67, 0x6f, 0x62, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x2e,
+	0x53, 0x65, 0x74, 0x50, 0x75, 0x6d, 0x70, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x16,
+	0x2e, 0x67, 0x6f, 0x62, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x2e, 0x53, 0x65, 0x74, 0x50, 0x75, 0x6d,
+	0x70, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x22, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -275,20 +181,16 @@ func file_gobonsai_proto_rawDescGZIP() []byte {
 	return file_gobonsai_proto_rawDescData
 }
 
-var file_gobonsai_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_gobonsai_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_gobonsai_proto_goTypes = []interface{}{
-	(*ListSensorRequest)(nil), // 0: gobonsai.ListSensorRequest
-	(*SensorValue)(nil),       // 1: gobonsai.SensorValue
-	(*StopPumpsRequest)(nil),  // 2: gobonsai.StopPumpsRequest
-	(*StopPumpsReply)(nil),    // 3: gobonsai.StopPumpsReply
+	(*SetPumpRequest)(nil), // 0: gobonsai.SetPumpRequest
+	(*SetPumpReply)(nil),   // 1: gobonsai.SetPumpReply
 }
 var file_gobonsai_proto_depIdxs = []int32{
-	2, // 0: gobonsai.GoBonsaiService.SetPump:input_type -> gobonsai.StopPumpsRequest
-	0, // 1: gobonsai.GoBonsaiService.ListSensorValues:input_type -> gobonsai.ListSensorRequest
-	3, // 2: gobonsai.GoBonsaiService.SetPump:output_type -> gobonsai.StopPumpsReply
-	1, // 3: gobonsai.GoBonsaiService.ListSensorValues:output_type -> gobonsai.SensorValue
-	2, // [2:4] is the sub-list for method output_type
-	0, // [0:2] is the sub-list for method input_type
+	0, // 0: gobonsai.GoBonsaiService.SetPump:input_type -> gobonsai.SetPumpRequest
+	1, // 1: gobonsai.GoBonsaiService.SetPump:output_type -> gobonsai.SetPumpReply
+	1, // [1:2] is the sub-list for method output_type
+	0, // [0:1] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -301,7 +203,7 @@ func file_gobonsai_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_gobonsai_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ListSensorRequest); i {
+			switch v := v.(*SetPumpRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -313,31 +215,7 @@ func file_gobonsai_proto_init() {
 			}
 		}
 		file_gobonsai_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*SensorValue); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_gobonsai_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*StopPumpsRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_gobonsai_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*StopPumpsReply); i {
+			switch v := v.(*SetPumpReply); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -355,7 +233,7 @@ func file_gobonsai_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_gobonsai_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -381,8 +259,7 @@ const _ = grpc.SupportPackageIsVersion6
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type GoBonsaiServiceClient interface {
-	SetPump(ctx context.Context, in *StopPumpsRequest, opts ...grpc.CallOption) (*StopPumpsReply, error)
-	ListSensorValues(ctx context.Context, in *ListSensorRequest, opts ...grpc.CallOption) (GoBonsaiService_ListSensorValuesClient, error)
+	SetPump(ctx context.Context, in *SetPumpRequest, opts ...grpc.CallOption) (*SetPumpReply, error)
 }
 
 type goBonsaiServiceClient struct {
@@ -393,8 +270,8 @@ func NewGoBonsaiServiceClient(cc grpc.ClientConnInterface) GoBonsaiServiceClient
 	return &goBonsaiServiceClient{cc}
 }
 
-func (c *goBonsaiServiceClient) SetPump(ctx context.Context, in *StopPumpsRequest, opts ...grpc.CallOption) (*StopPumpsReply, error) {
-	out := new(StopPumpsReply)
+func (c *goBonsaiServiceClient) SetPump(ctx context.Context, in *SetPumpRequest, opts ...grpc.CallOption) (*SetPumpReply, error) {
+	out := new(SetPumpReply)
 	err := c.cc.Invoke(ctx, "/gobonsai.GoBonsaiService/SetPump", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -402,53 +279,17 @@ func (c *goBonsaiServiceClient) SetPump(ctx context.Context, in *StopPumpsReques
 	return out, nil
 }
 
-func (c *goBonsaiServiceClient) ListSensorValues(ctx context.Context, in *ListSensorRequest, opts ...grpc.CallOption) (GoBonsaiService_ListSensorValuesClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_GoBonsaiService_serviceDesc.Streams[0], "/gobonsai.GoBonsaiService/ListSensorValues", opts...)
-	if err != nil {
-		return nil, err
-	}
-	x := &goBonsaiServiceListSensorValuesClient{stream}
-	if err := x.ClientStream.SendMsg(in); err != nil {
-		return nil, err
-	}
-	if err := x.ClientStream.CloseSend(); err != nil {
-		return nil, err
-	}
-	return x, nil
-}
-
-type GoBonsaiService_ListSensorValuesClient interface {
-	Recv() (*SensorValue, error)
-	grpc.ClientStream
-}
-
-type goBonsaiServiceListSensorValuesClient struct {
-	grpc.ClientStream
-}
-
-func (x *goBonsaiServiceListSensorValuesClient) Recv() (*SensorValue, error) {
-	m := new(SensorValue)
-	if err := x.ClientStream.RecvMsg(m); err != nil {
-		return nil, err
-	}
-	return m, nil
-}
-
 // GoBonsaiServiceServer is the server API for GoBonsaiService service.
 type GoBonsaiServiceServer interface {
-	SetPump(context.Context, *StopPumpsRequest) (*StopPumpsReply, error)
-	ListSensorValues(*ListSensorRequest, GoBonsaiService_ListSensorValuesServer) error
+	SetPump(context.Context, *SetPumpRequest) (*SetPumpReply, error)
 }
 
 // UnimplementedGoBonsaiServiceServer can be embedded to have forward compatible implementations.
 type UnimplementedGoBonsaiServiceServer struct {
 }
 
-func (*UnimplementedGoBonsaiServiceServer) SetPump(context.Context, *StopPumpsRequest) (*StopPumpsReply, error) {
+func (*UnimplementedGoBonsaiServiceServer) SetPump(context.Context, *SetPumpRequest) (*SetPumpReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SetPump not implemented")
-}
-func (*UnimplementedGoBonsaiServiceServer) ListSensorValues(*ListSensorRequest, GoBonsaiService_ListSensorValuesServer) error {
-	return status.Errorf(codes.Unimplemented, "method ListSensorValues not implemented")
 }
 
 func RegisterGoBonsaiServiceServer(s *grpc.Server, srv GoBonsaiServiceServer) {
@@ -456,7 +297,7 @@ func RegisterGoBonsaiServiceServer(s *grpc.Server, srv GoBonsaiServiceServer) {
 }
 
 func _GoBonsaiService_SetPump_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StopPumpsRequest)
+	in := new(SetPumpRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -468,30 +309,9 @@ func _GoBonsaiService_SetPump_Handler(srv interface{}, ctx context.Context, dec 
 		FullMethod: "/gobonsai.GoBonsaiService/SetPump",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GoBonsaiServiceServer).SetPump(ctx, req.(*StopPumpsRequest))
+		return srv.(GoBonsaiServiceServer).SetPump(ctx, req.(*SetPumpRequest))
 	}
 	return interceptor(ctx, in, info, handler)
-}
-
-func _GoBonsaiService_ListSensorValues_Handler(srv interface{}, stream grpc.ServerStream) error {
-	m := new(ListSensorRequest)
-	if err := stream.RecvMsg(m); err != nil {
-		return err
-	}
-	return srv.(GoBonsaiServiceServer).ListSensorValues(m, &goBonsaiServiceListSensorValuesServer{stream})
-}
-
-type GoBonsaiService_ListSensorValuesServer interface {
-	Send(*SensorValue) error
-	grpc.ServerStream
-}
-
-type goBonsaiServiceListSensorValuesServer struct {
-	grpc.ServerStream
-}
-
-func (x *goBonsaiServiceListSensorValuesServer) Send(m *SensorValue) error {
-	return x.ServerStream.SendMsg(m)
 }
 
 var _GoBonsaiService_serviceDesc = grpc.ServiceDesc{
@@ -503,12 +323,6 @@ var _GoBonsaiService_serviceDesc = grpc.ServiceDesc{
 			Handler:    _GoBonsaiService_SetPump_Handler,
 		},
 	},
-	Streams: []grpc.StreamDesc{
-		{
-			StreamName:    "ListSensorValues",
-			Handler:       _GoBonsaiService_ListSensorValues_Handler,
-			ServerStreams: true,
-		},
-	},
+	Streams:  []grpc.StreamDesc{},
 	Metadata: "gobonsai.proto",
 }
