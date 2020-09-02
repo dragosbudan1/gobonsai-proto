@@ -287,108 +287,6 @@ func (*Empty) Descriptor() ([]byte, []int) {
 	return file_gobonsai_proto_rawDescGZIP(), []int{4}
 }
 
-type SetAutoPumpRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Active bool `protobuf:"varint,1,opt,name=active,proto3" json:"active,omitempty"`
-}
-
-func (x *SetAutoPumpRequest) Reset() {
-	*x = SetAutoPumpRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_gobonsai_proto_msgTypes[5]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *SetAutoPumpRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAutoPumpRequest) ProtoMessage() {}
-
-func (x *SetAutoPumpRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gobonsai_proto_msgTypes[5]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAutoPumpRequest.ProtoReflect.Descriptor instead.
-func (*SetAutoPumpRequest) Descriptor() ([]byte, []int) {
-	return file_gobonsai_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *SetAutoPumpRequest) GetActive() bool {
-	if x != nil {
-		return x.Active
-	}
-	return false
-}
-
-type SetAutoPumpResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Active  bool `protobuf:"varint,1,opt,name=active,proto3" json:"active,omitempty"`
-	Success bool `protobuf:"varint,2,opt,name=success,proto3" json:"success,omitempty"`
-}
-
-func (x *SetAutoPumpResponse) Reset() {
-	*x = SetAutoPumpResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_gobonsai_proto_msgTypes[6]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *SetAutoPumpResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAutoPumpResponse) ProtoMessage() {}
-
-func (x *SetAutoPumpResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gobonsai_proto_msgTypes[6]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAutoPumpResponse.ProtoReflect.Descriptor instead.
-func (*SetAutoPumpResponse) Descriptor() ([]byte, []int) {
-	return file_gobonsai_proto_rawDescGZIP(), []int{6}
-}
-
-func (x *SetAutoPumpResponse) GetActive() bool {
-	if x != nil {
-		return x.Active
-	}
-	return false
-}
-
-func (x *SetAutoPumpResponse) GetSuccess() bool {
-	if x != nil {
-		return x.Success
-	}
-	return false
-}
-
 var File_gobonsai_proto protoreflect.FileDescriptor
 
 var file_gobonsai_proto_rawDesc = []byte{
@@ -411,29 +309,16 @@ var file_gobonsai_proto_rawDesc = []byte{
 	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x28, 0x0a, 0x05, 0x50, 0x75, 0x6d, 0x70, 0x73, 0x18,
 	0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x12, 0x2e, 0x67, 0x6f, 0x62, 0x6f, 0x6e, 0x73, 0x61, 0x69,
 	0x2e, 0x50, 0x75, 0x6d, 0x70, 0x44, 0x61, 0x74, 0x61, 0x52, 0x05, 0x70, 0x75, 0x6d, 0x70, 0x73,
-	0x22, 0x07, 0x0a, 0x05, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x22, 0x2c, 0x0a, 0x12, 0x53, 0x65, 0x74,
-	0x41, 0x75, 0x74, 0x6f, 0x50, 0x75, 0x6d, 0x70, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
-	0x16, 0x0a, 0x06, 0x61, 0x63, 0x74, 0x69, 0x76, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52,
-	0x06, 0x61, 0x63, 0x74, 0x69, 0x76, 0x65, 0x22, 0x47, 0x0a, 0x13, 0x53, 0x65, 0x74, 0x41, 0x75,
-	0x74, 0x6f, 0x50, 0x75, 0x6d, 0x70, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x16,
-	0x0a, 0x06, 0x61, 0x63, 0x74, 0x69, 0x76, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x06,
-	0x61, 0x63, 0x74, 0x69, 0x76, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73,
-	0x73, 0x18, 0x02, 0x20, 0x01, 0x28, 0x08, 0x52, 0x07, 0x73, 0x75, 0x63, 0x63, 0x65, 0x73, 0x73,
-	0x32, 0xd9, 0x01, 0x0a, 0x0f, 0x47, 0x6f, 0x42, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x53, 0x65, 0x72,
-	0x76, 0x69, 0x63, 0x65, 0x12, 0x3d, 0x0a, 0x07, 0x53, 0x65, 0x74, 0x50, 0x75, 0x6d, 0x70, 0x12,
-	0x18, 0x2e, 0x67, 0x6f, 0x62, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x2e, 0x53, 0x65, 0x74, 0x50, 0x75,
-	0x6d, 0x70, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x16, 0x2e, 0x67, 0x6f, 0x62, 0x6f,
-	0x6e, 0x73, 0x61, 0x69, 0x2e, 0x53, 0x65, 0x74, 0x50, 0x75, 0x6d, 0x70, 0x52, 0x65, 0x70, 0x6c,
-	0x79, 0x22, 0x00, 0x12, 0x39, 0x0a, 0x08, 0x47, 0x65, 0x74, 0x50, 0x75, 0x6d, 0x70, 0x73, 0x12,
-	0x0f, 0x2e, 0x67, 0x6f, 0x62, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79,
-	0x1a, 0x1a, 0x2e, 0x67, 0x6f, 0x62, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x2e, 0x47, 0x65, 0x74, 0x50,
-	0x75, 0x6d, 0x70, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x4c,
-	0x0a, 0x0b, 0x53, 0x65, 0x74, 0x41, 0x75, 0x74, 0x6f, 0x50, 0x75, 0x6d, 0x70, 0x12, 0x1c, 0x2e,
-	0x67, 0x6f, 0x62, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x2e, 0x53, 0x65, 0x74, 0x41, 0x75, 0x74, 0x6f,
-	0x50, 0x75, 0x6d, 0x70, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1d, 0x2e, 0x67, 0x6f,
-	0x62, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x2e, 0x53, 0x65, 0x74, 0x41, 0x75, 0x74, 0x6f, 0x50, 0x75,
-	0x6d, 0x70, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x62, 0x06, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x33,
+	0x22, 0x07, 0x0a, 0x05, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x32, 0x8b, 0x01, 0x0a, 0x0f, 0x47, 0x6f,
+	0x42, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x3d, 0x0a,
+	0x07, 0x53, 0x65, 0x74, 0x50, 0x75, 0x6d, 0x70, 0x12, 0x18, 0x2e, 0x67, 0x6f, 0x62, 0x6f, 0x6e,
+	0x73, 0x61, 0x69, 0x2e, 0x53, 0x65, 0x74, 0x50, 0x75, 0x6d, 0x70, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x1a, 0x16, 0x2e, 0x67, 0x6f, 0x62, 0x6f, 0x6e, 0x73, 0x61, 0x69, 0x2e, 0x53, 0x65,
+	0x74, 0x50, 0x75, 0x6d, 0x70, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x22, 0x00, 0x12, 0x39, 0x0a, 0x08,
+	0x47, 0x65, 0x74, 0x50, 0x75, 0x6d, 0x70, 0x73, 0x12, 0x0f, 0x2e, 0x67, 0x6f, 0x62, 0x6f, 0x6e,
+	0x73, 0x61, 0x69, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a, 0x1a, 0x2e, 0x67, 0x6f, 0x62, 0x6f,
+	0x6e, 0x73, 0x61, 0x69, 0x2e, 0x47, 0x65, 0x74, 0x50, 0x75, 0x6d, 0x70, 0x73, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -448,26 +333,22 @@ func file_gobonsai_proto_rawDescGZIP() []byte {
 	return file_gobonsai_proto_rawDescData
 }
 
-var file_gobonsai_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_gobonsai_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_gobonsai_proto_goTypes = []interface{}{
-	(*SetPumpRequest)(nil),      // 0: gobonsai.SetPumpRequest
-	(*SetPumpReply)(nil),        // 1: gobonsai.SetPumpReply
-	(*PumpData)(nil),            // 2: gobonsai.PumpData
-	(*GetPumpsResponse)(nil),    // 3: gobonsai.GetPumpsResponse
-	(*Empty)(nil),               // 4: gobonsai.Empty
-	(*SetAutoPumpRequest)(nil),  // 5: gobonsai.SetAutoPumpRequest
-	(*SetAutoPumpResponse)(nil), // 6: gobonsai.SetAutoPumpResponse
+	(*SetPumpRequest)(nil),   // 0: gobonsai.SetPumpRequest
+	(*SetPumpReply)(nil),     // 1: gobonsai.SetPumpReply
+	(*PumpData)(nil),         // 2: gobonsai.PumpData
+	(*GetPumpsResponse)(nil), // 3: gobonsai.GetPumpsResponse
+	(*Empty)(nil),            // 4: gobonsai.Empty
 }
 var file_gobonsai_proto_depIdxs = []int32{
 	2, // 0: gobonsai.GetPumpsResponse.Pumps:type_name -> gobonsai.PumpData
 	0, // 1: gobonsai.GoBonsaiService.SetPump:input_type -> gobonsai.SetPumpRequest
 	4, // 2: gobonsai.GoBonsaiService.GetPumps:input_type -> gobonsai.Empty
-	5, // 3: gobonsai.GoBonsaiService.SetAutoPump:input_type -> gobonsai.SetAutoPumpRequest
-	1, // 4: gobonsai.GoBonsaiService.SetPump:output_type -> gobonsai.SetPumpReply
-	3, // 5: gobonsai.GoBonsaiService.GetPumps:output_type -> gobonsai.GetPumpsResponse
-	6, // 6: gobonsai.GoBonsaiService.SetAutoPump:output_type -> gobonsai.SetAutoPumpResponse
-	4, // [4:7] is the sub-list for method output_type
-	1, // [1:4] is the sub-list for method input_type
+	1, // 3: gobonsai.GoBonsaiService.SetPump:output_type -> gobonsai.SetPumpReply
+	3, // 4: gobonsai.GoBonsaiService.GetPumps:output_type -> gobonsai.GetPumpsResponse
+	3, // [3:5] is the sub-list for method output_type
+	1, // [1:3] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
 	1, // [1:1] is the sub-list for extension extendee
 	0, // [0:1] is the sub-list for field type_name
@@ -539,30 +420,6 @@ func file_gobonsai_proto_init() {
 				return nil
 			}
 		}
-		file_gobonsai_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*SetAutoPumpRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_gobonsai_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*SetAutoPumpResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -570,7 +427,7 @@ func file_gobonsai_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_gobonsai_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   7,
+			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -598,7 +455,6 @@ const _ = grpc.SupportPackageIsVersion6
 type GoBonsaiServiceClient interface {
 	SetPump(ctx context.Context, in *SetPumpRequest, opts ...grpc.CallOption) (*SetPumpReply, error)
 	GetPumps(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*GetPumpsResponse, error)
-	SetAutoPump(ctx context.Context, in *SetAutoPumpRequest, opts ...grpc.CallOption) (*SetAutoPumpResponse, error)
 }
 
 type goBonsaiServiceClient struct {
@@ -627,20 +483,10 @@ func (c *goBonsaiServiceClient) GetPumps(ctx context.Context, in *Empty, opts ..
 	return out, nil
 }
 
-func (c *goBonsaiServiceClient) SetAutoPump(ctx context.Context, in *SetAutoPumpRequest, opts ...grpc.CallOption) (*SetAutoPumpResponse, error) {
-	out := new(SetAutoPumpResponse)
-	err := c.cc.Invoke(ctx, "/gobonsai.GoBonsaiService/SetAutoPump", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // GoBonsaiServiceServer is the server API for GoBonsaiService service.
 type GoBonsaiServiceServer interface {
 	SetPump(context.Context, *SetPumpRequest) (*SetPumpReply, error)
 	GetPumps(context.Context, *Empty) (*GetPumpsResponse, error)
-	SetAutoPump(context.Context, *SetAutoPumpRequest) (*SetAutoPumpResponse, error)
 }
 
 // UnimplementedGoBonsaiServiceServer can be embedded to have forward compatible implementations.
@@ -652,9 +498,6 @@ func (*UnimplementedGoBonsaiServiceServer) SetPump(context.Context, *SetPumpRequ
 }
 func (*UnimplementedGoBonsaiServiceServer) GetPumps(context.Context, *Empty) (*GetPumpsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPumps not implemented")
-}
-func (*UnimplementedGoBonsaiServiceServer) SetAutoPump(context.Context, *SetAutoPumpRequest) (*SetAutoPumpResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SetAutoPump not implemented")
 }
 
 func RegisterGoBonsaiServiceServer(s *grpc.Server, srv GoBonsaiServiceServer) {
@@ -697,24 +540,6 @@ func _GoBonsaiService_GetPumps_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
-func _GoBonsaiService_SetAutoPump_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetAutoPumpRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GoBonsaiServiceServer).SetAutoPump(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/gobonsai.GoBonsaiService/SetAutoPump",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GoBonsaiServiceServer).SetAutoPump(ctx, req.(*SetAutoPumpRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 var _GoBonsaiService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "gobonsai.GoBonsaiService",
 	HandlerType: (*GoBonsaiServiceServer)(nil),
@@ -726,10 +551,6 @@ var _GoBonsaiService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetPumps",
 			Handler:    _GoBonsaiService_GetPumps_Handler,
-		},
-		{
-			MethodName: "SetAutoPump",
-			Handler:    _GoBonsaiService_SetAutoPump_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

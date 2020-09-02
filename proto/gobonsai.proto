@@ -5,7 +5,6 @@ package gobonsai;
 service GoBonsaiService {
     rpc SetPump (SetPumpRequest) returns (SetPumpReply) {}
     rpc GetPumps (Empty) returns (GetPumpsResponse) {}
-    rpc SetAutoPump (SetAutoPumpRequest) returns (SetAutoPumpResponse) {}
 }
 
 message SetPumpRequest {
@@ -30,13 +29,4 @@ message GetPumpsResponse {
 
 message Empty {
     
-}
-
-message SetAutoPumpRequest {
-    bool active = 1;
-}
-
-message SetAutoPumpResponse {
-    bool active = 1;
-    bool success = 2;
 }
